@@ -2,6 +2,7 @@
 // Auth Login
 POST http://localhost:3000/authentications
 Content-Type: application/json
+Authorization: Bearer xxx
 
 {
   "username": "adeiskandarzulkarnaen",

@@ -1,7 +1,9 @@
 {
   "name": "hono-starter",
   "scripts": {
-    "build": "bun build src --outdir dist/ --minify --sourcemap",
+    "test": "bun test src/ --watch",
+    "build": "bun build src --outdir dist --root src",
+    "build:minify": "bun build src --outdir dist --minify --sourcemap",
     "build:compile": "bun build src/ --compile --minify --sourcemap --outfile dist/",
     "start": "bun run dist/src/index.js",
     "start:dev": "bun run --hot src/index.ts",
@@ -9,7 +11,8 @@
   },
   "dependencies": {
     "@prisma/client": "5.22.0",
-    "hono": "^4.6.12"
+    "hono": "^4.6.12",
+    "instances-container": "^2.0.6"
   },
   "devDependencies": {
     "@types/bun": "latest",

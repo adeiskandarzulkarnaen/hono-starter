@@ -2,6 +2,15 @@
   "compilerOptions": {
     "strict": true,
     "jsx": "react-jsx",
-    "jsxImportSource": "hono/jsx"
+    "jsxImportSource": "hono/jsx",
+    "baseUrl": "./",
+    "paths": {
+      "@domains/*": ["src/Domains/*"],
+      "@applications/*": ["src/Applications/*"],
+      "@interfaces/*": ["src/Interfaces/*"],
+      "@infrastructures/*": ["src/Infrastructures/*"],
+      "@commons/*": ["src/Commons/*"],
+      "@tests/*": ["tests/*"]
+    },
   }
 }
