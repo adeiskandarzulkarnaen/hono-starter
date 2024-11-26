@@ -1,0 +1,18 @@
+{
+  "name": "hono-starter",
+  "scripts": {
+    "build": "bun build src --outdir dist/ --minify --sourcemap",
+    "build:compile": "bun build src/ --compile --minify --sourcemap --outfile dist/",
+    "start": "bun run dist/src/index.js",
+    "start:dev": "bun run --hot src/index.ts",
+    "migrate:up": "bunx prisma migrate dev"
+  },
+  "dependencies": {
+    "@prisma/client": "5.22.0",
+    "hono": "^4.6.12"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "prisma": "^5.22.0"
+  }
+}

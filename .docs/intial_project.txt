@@ -1,0 +1,9 @@
+
+bun create hono@latest hono-starter
+bun add prisma --dev
+bunx prisma init --datasource-provider mysql
+
+
+# setup project
+bun install
+bunx prisma generate
