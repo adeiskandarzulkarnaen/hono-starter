@@ -1,4 +1,6 @@
 {
+  "include": ["./"],
+  "exclude": ["dist", "node_modules"],
   "compilerOptions": {
     "strict": true,
     "jsx": "react-jsx",

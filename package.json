@@ -2,11 +2,10 @@
   "name": "hono-starter",
   "scripts": {
     "test": "bun test src/ --watch",
-    "build": "bun build src --outdir dist --root src",
-    "build:minify": "bun build src --outdir dist --minify --sourcemap",
-    "build:compile": "bun build src/ --compile --minify --sourcemap --outfile dist/",
-    "start": "bun run dist/src/index.js",
-    "start:dev": "bun run --hot src/index.ts",
+    "build": "bun build src/app.ts --outdir dist --root src --target=bun --minify --sourcemap",
+    "build:compile": "bun build src/app.ts --compile --minify --sourcemap --outfile ./dist/compile",
+    "start": "bun run dist/src/app.js",
+    "start:dev": "bun run --hot src/app.ts",
     "migrate:up": "bunx prisma migrate dev"
   },
   "dependencies": {
