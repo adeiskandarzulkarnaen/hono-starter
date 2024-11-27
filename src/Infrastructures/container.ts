@@ -4,18 +4,21 @@ import { createContainer } from 'instances-container';
 
 // external agency
 import { password } from 'bun';
+import { sign, verify } from 'hono/jwt';
 import prismaClient from '@infrastructures/database/prisma/prismaClient';
 
 
 // service (repository, helper, manager, etc)
 import UserRepositoryPrisma from '@infrastructures/repository/UserRepositoryPrisma';
 import BunBCryptPasswordHash from '@infrastructures/security/BunBCryptPasswordHash';
+import HonoJwtTokenManager from '@infrastructures/security/HonoJwtTokenManager';
 
 
 // use case
 import AddUserUseCase from '@applications/use_case/AddUserUseCase';
 import UserRepository from '@domains/users/UserRepository';
 import PasswordHash from '@applications/security/PasswordHash';
+import AuthenticationTokenManager from '@applications/security/AuthenticationTokenManager';
 
 
 // creating container
@@ -44,6 +47,16 @@ container.register([
       ]
     }
   },
+  {
+    key: AuthenticationTokenManager.name,
+    Class: HonoJwtTokenManager,
+    parameter: {
+      injectType: 'parameter',
+      dependencies: [
+        { concrete: { sign, verify } }
+      ]
+    }
+  }
 ]);
 
 

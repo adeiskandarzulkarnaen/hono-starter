@@ -1,17 +1,15 @@
-import { Password } from "bun";
+import type { password } from "bun";
 import AuthenticationError from "@commons/exceptions/AuthenticationError";
 import PasswordHash from "@applications/security/PasswordHash";
 
 
-type BunPasswordLib = {
-  hash(password: string, algorithm?: Password.BCryptAlgorithm): Promise<string>
-  verify(password: string, hash: string, algorithm?: Password.AlgorithmLabel): Promise<boolean>;
-}
-
-
 class BunBCryptPasswordHash extends PasswordHash {
-  constructor(private readonly password: BunPasswordLib, private saltRound: number = 10) {
+  private readonly password;
+  private readonly saltRound;
+  constructor(bunpassword: typeof password, saltRound: number = 10) {
     super();
+    this.password = bunpassword;
+    this.saltRound = saltRound;
   }
 
   public async hash(plain: string): Promise<string> {
