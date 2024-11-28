@@ -4,7 +4,7 @@ import type UserHandler from "./handler";
 const routes = (handler: UserHandler): Hono => {
   const app = new Hono();
 
-  // * ROUTING for '/users'
+  // * ROUTING '/users'
   app.post('/', handler.postUserHandler);
 
 

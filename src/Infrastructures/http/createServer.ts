@@ -8,6 +8,7 @@ import { Container } from "instances-container";
 
 // import routes
 import userRoutes from '@interfaces/http/api/users/index';
+import authenticationRoutes from "@interfaces/http/api/authentications/index";
 
 // import middleware
 import onErrorHandler from '@interfaces/http/middlewares/onErrorHandler';
@@ -18,7 +19,7 @@ const createServer = (container: Container) => {
   const app = new Hono<{ Variables: JwtVariables }>();
 
   // * GLOBAL MIDDLEWARE
-  // app.use(cors());
+  app.use(cors());
   // app.use(secureHeaders())
   // app.use(logger())
   // app.use(prettyJSON())
@@ -26,6 +27,7 @@ const createServer = (container: Container) => {
 
   // * ROUTING
   app.route('/users', userRoutes(container));
+  app.route('/authentications', authenticationRoutes(container));
 
 
   // * GLOBAL ERROR HANDLING
