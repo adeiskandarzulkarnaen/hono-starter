@@ -1,4 +1,4 @@
-import bcrypt from 'bcrypt';
+import { password as bunPassword } from 'bun';
 import prismaClient from '../src/Infrastructures/database/prisma/prismaClient';
 
 
@@ -8,7 +8,7 @@ const UsersTableTestHelper = {
     password = 'secretpassword',
     fullname = 'Ade Iskandar Zulkarnaen'
   }) {
-    const hashedPassword = await bcrypt.hash(password, 10);
+    const hashedPassword = await bunPassword.hash(password, 'bcrypt');
 
     return prismaClient.user.create({
       data: { username, password: hashedPassword, fullname },
