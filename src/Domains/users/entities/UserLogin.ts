@@ -11,7 +11,7 @@ export class UserLogin {
   constructor(payload: Record<string, unknown>) {
     this.verifyPayload(payload);
 
-    const { username, password, fullname } = payload as eUserLogin;
+    const { username, password } = payload as eUserLogin;
 
     this.username = username;
     this.password = password;
