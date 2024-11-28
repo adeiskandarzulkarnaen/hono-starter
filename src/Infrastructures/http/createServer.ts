@@ -18,7 +18,7 @@ const createServer = (container: Container) => {
   const app = new Hono<{ Variables: JwtVariables }>();
 
   // * GLOBAL MIDDLEWARE
-  app.use(cors());
+  // app.use(cors());
   // app.use(secureHeaders())
   // app.use(logger())
   // app.use(prettyJSON())

@@ -1,6 +1,8 @@
 import { Context } from "hono";
 import { Container } from "instances-container";
 import AddUserUseCase from "@applications/use_case/AddUserUseCase";
+import { eRegisterUser } from "@domains/users/entities/RegisterUser";
+import { mapJsonError } from "@commons/mapping/errorMaping";
 
 
 class UserHandler {
@@ -10,11 +12,10 @@ class UserHandler {
 
   public async postUserHandler(c: Context) {
     const addUserUseCase: AddUserUseCase = this.container.getInstance(AddUserUseCase.name);
+    const payload: eRegisterUser = await c.req.json().catch(mapJsonError);
 
-    const reqBodyJson = await c.req.json();
-    const addedUser = await addUserUseCase.execute(reqBodyJson);
+    const addedUser = await addUserUseCase.execute(payload);
 
-    const data = await c.req.json();
     return c.json({
       status: 'success',
       message: 'berhasil mendaftarkan user',
