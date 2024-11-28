@@ -1,7 +1,7 @@
 import { eRegisteredUser } from "@domains/users/entities/RegisteredUser";
 import { eRegisterUser, RegisterUser } from "@domains/users/entities/RegisterUser";
-import UserRepository from "@domains/users/UserRepository";
-import PasswordHash from "@applications/security/PasswordHash";
+import type UserRepository from "@domains/users/UserRepository";
+import type PasswordHash from "@applications/security/PasswordHash";
 
 
 interface AddUserUseCaseDevedencies {

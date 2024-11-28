@@ -6,7 +6,7 @@ const routes = (handler: UserHandler): Hono => {
 
   // * ROUTING '/users'
   app.post('/', handler.postUserHandler);
-
+  app.get('/', handler.getUserHandler);
 
   return app;
 };

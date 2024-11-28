@@ -1,13 +1,15 @@
 import { Context } from "hono";
 import { Container } from "instances-container";
-import AddUserUseCase from "@applications/use_case/AddUserUseCase";
-import { eRegisterUser } from "@domains/users/entities/RegisterUser";
 import { mapJsonError } from "@commons/mapping/errorMaping";
+
+import { eRegisterUser } from "@domains/users/entities/RegisterUser";
+import AddUserUseCase from "@applications/use_case/AddUserUseCase";
 
 
 class UserHandler {
   constructor(private readonly container: Container) {
     this.postUserHandler = this.postUserHandler.bind(this);
+    this.getUserHandler = this.getUserHandler.bind(this);
   };
 
   public async postUserHandler(c: Context) {
@@ -23,6 +25,16 @@ class UserHandler {
         addedUser,
       }
     })
+  }
+
+  public async getUserHandler(c: Context) {
+    return c.json({
+      status: 'success',
+      message: 'berhasil get user with jwt',
+      data: {
+        name: "nama user"
+      }
+    }, 200);
   }
 };
 
