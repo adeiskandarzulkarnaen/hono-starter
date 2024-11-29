@@ -29,6 +29,24 @@ class UserRepositoryPrisma extends UserRepository {
 
     return new RegisteredUser(result);
   }
+
+  public async getPasswordByUsername(username: string): Promise<string> {
+    const user = await this.prismaClient.user.findFirst({
+      where: { username }, select: { password: true }
+    });
+
+    if (!user?.password) throw new InvariantError('username tidak ditemukan');
+    return user.password;
+  }
+
+  public async getIdByUsername(username: string): Promise<string> {
+    const user = await this.prismaClient.user.findFirst({
+      where: { username }, select: { id: true }
+    });
+
+    if(!user?.id) throw new InvariantError("user tidak ditemukan");
+    return user.id;
+  }
 }
 
 export default UserRepositoryPrisma;

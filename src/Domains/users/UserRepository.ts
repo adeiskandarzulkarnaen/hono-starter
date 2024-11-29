@@ -28,6 +28,10 @@ abstract class UserRepository {
    * @throws {Error} - Throws an error if the method is not implemented in a concrete class.
    */
   abstract addUser(registerUser: RegisterUser): Promise<RegisteredUser>;
+
+  abstract getPasswordByUsername(username: string):  Promise<string>;
+
+  abstract getIdByUsername(username: string): Promise<string>;
 };
 
 export default UserRepository;

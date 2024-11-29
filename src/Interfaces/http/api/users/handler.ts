@@ -1,9 +1,8 @@
 import { Context } from "hono";
 import { Container } from "instances-container";
-import { mapJsonError } from "@commons/mapping/errorMaping";
-
 import { eRegisterUser } from "@domains/users/entities/RegisterUser";
 import AddUserUseCase from "@applications/use_case/AddUserUseCase";
+import { mapJsonError } from "@commons/mapping/errorMaping";
 
 
 class UserHandler {

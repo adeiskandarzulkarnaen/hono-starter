@@ -19,6 +19,7 @@ import AddUserUseCase from '@applications/use_case/AddUserUseCase';
 import UserRepository from '@domains/users/UserRepository';
 import PasswordHash from '@applications/security/PasswordHash';
 import AuthenticationTokenManager from '@applications/security/AuthenticationTokenManager';
+import UserLoginUseCase from '@applications/use_case/UserLoginUseCase';
 
 
 // creating container
@@ -73,6 +74,18 @@ container.register([
       ]
     }
   },
+  {
+    key: UserLoginUseCase.name,
+    Class: UserLoginUseCase,
+    parameter: {
+      injectType: 'destructuring',
+      dependencies: [
+        { name: 'userRepository', internal: UserRepository.name },
+        { name: 'passwordHash', internal: PasswordHash.name },
+        { name: 'tokenManager', internal: AuthenticationTokenManager.name},
+      ]
+    }
+  }
 ]);
 
 

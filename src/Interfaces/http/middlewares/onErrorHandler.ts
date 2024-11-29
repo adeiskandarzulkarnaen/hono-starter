@@ -12,12 +12,14 @@ async function onErrorHandler(err: Error, c: Context) {
     }, translatedError.status);
   }
 
-  // if (err instanceof HTTPException) {
-  //   console.log(err.message);
-  //   return err.getResponse();
-  // }
+  if (err instanceof HTTPException) {
+    return c.json({
+      status: 'fail',
+      message: err.message,
+    }, err.status);
+  }
 
-  // console.error("Unhandled error:", err.message);
+  console.error("Unhandled error:", err);
   return c.json({
     status: "error",
     message: "terjadi kesalahan pada server kami",
