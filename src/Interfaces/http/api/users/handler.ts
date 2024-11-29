@@ -1,9 +1,9 @@
-import { Context } from "hono";
-import { Container } from "instances-container";
-import { eRegisterUser } from "@domains/users/entities/RegisterUser";
-import { AddUserUseCase } from "@applications/use_case/AddUserUseCase";
-import { mapJsonError } from "@commons/mapping/errorMaping";
-import jwtAuth from "@interfaces/http/middlewares/jwtAuth";
+import { Context } from 'hono';
+import { Container } from 'instances-container';
+import { eRegisterUser } from '@domains/users/entities/RegisterUser';
+import { AddUserUseCase } from '@applications/use_case/AddUserUseCase';
+import { mapJsonError } from '@commons/mapping/errorMaping';
+import jwtAuth from '@interfaces/http/middlewares/jwtAuth';
 
 
 class UserHandler {
@@ -23,7 +23,7 @@ class UserHandler {
       data: {
         addedUser,
       }
-    })
+    });
   }];
 
   public getUserHandlers = [jwtAuth(), (c: Context) => {
@@ -31,7 +31,7 @@ class UserHandler {
       status: 'success',
       message: 'berhasil get data user',
       data: {
-        any: "test api"
+        any: 'test api'
       }
     });
   }];

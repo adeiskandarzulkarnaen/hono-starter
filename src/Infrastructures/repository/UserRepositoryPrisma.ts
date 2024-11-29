@@ -44,7 +44,7 @@ class UserRepositoryPrisma extends UserRepository {
       where: { username }, select: { id: true }
     });
 
-    if(!user?.id) throw new InvariantError("user tidak ditemukan");
+    if (!user?.id) throw new InvariantError('user tidak ditemukan');
     return user.id;
   }
 }

@@ -1,18 +1,19 @@
-import { Hono } from "hono";
-import { cors } from 'hono/cors';
-import { logger } from 'hono/logger'
-import { secureHeaders } from 'hono/secure-headers'
-import { prettyJSON } from 'hono/pretty-json'
+import { Hono } from 'hono';
+import type { Container } from 'instances-container';
+
+
+// import middleware
 import type { JwtVariables } from 'hono/jwt';
-import { Container } from "instances-container";
+import { cors } from 'hono/cors';
+import { secureHeaders } from 'hono/secure-headers';
+import onErrorHandler from '@interfaces/http/middlewares/onErrorHandler';
+import onNotFoundHandler from '@interfaces/http/middlewares/onNotFoundHandler';
+
 
 // import routes
 import userRoutes from '@interfaces/http/api/users/index';
-import authenticationRoutes from "@interfaces/http/api/authentications/index";
+import authenticationRoutes from '@interfaces/http/api/authentications/index';
 
-// import middleware
-import onErrorHandler from '@interfaces/http/middlewares/onErrorHandler';
-import onNotFoundHandler from "@interfaces/http/middlewares/onNotFoundHandler";
 
 
 const createServer = (container: Container) => {
@@ -20,9 +21,7 @@ const createServer = (container: Container) => {
 
   // * GLOBAL MIDDLEWARE
   app.use(cors());
-  // app.use(secureHeaders())
-  // app.use(logger())
-  // app.use(prettyJSON())
+  app.use(secureHeaders());
 
 
   // * ROUTING

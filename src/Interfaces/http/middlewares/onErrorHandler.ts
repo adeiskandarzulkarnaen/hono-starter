@@ -1,7 +1,7 @@
-import { Context } from "hono";
-import { HTTPException } from "hono/http-exception";
-import ClientError from "@commons/exceptions/ClientError";
-import DomainErrorTranslator from "@commons/exceptions/DomainErrorTranslator";
+import { Context } from 'hono';
+import { HTTPException } from 'hono/http-exception';
+import ClientError from '@commons/exceptions/ClientError';
+import DomainErrorTranslator from '@commons/exceptions/DomainErrorTranslator';
 
 async function onErrorHandler(err: Error, c: Context) {
   const translatedError = DomainErrorTranslator.translate(err);
@@ -19,10 +19,10 @@ async function onErrorHandler(err: Error, c: Context) {
     }, err.status);
   }
 
-  console.error("Unhandled error:", err);
+  console.error('Unhandled error:', err);
   return c.json({
-    status: "error",
-    message: "terjadi kesalahan pada server kami",
+    status: 'error',
+    message: 'terjadi kesalahan pada server kami',
   }, 500);
 }
 

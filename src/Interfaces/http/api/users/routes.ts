@@ -1,5 +1,5 @@
 import { Hono } from 'hono';
-import type UserHandler from "./handler";
+import type UserHandler from './handler';
 
 
 

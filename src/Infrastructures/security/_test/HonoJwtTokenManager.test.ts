@@ -1,4 +1,4 @@
-import { describe, it, expect, mock } from 'bun:test';
+import { describe, it, expect } from 'bun:test';
 import { sign, verify } from 'hono/jwt';
 import HonoJwtTokenManager from '../HonoJwtTokenManager';
 import InvariantError from '@commons/exceptions/InvariantError';
@@ -11,8 +11,8 @@ describe('HonoJwtTokenManager', () => {
       // Arrange
       const honoJwtTokenManager = new HonoJwtTokenManager({ sign, verify });
       const payload = {
-        username: "adeiskandarzulkarnaen",
-        role: "admin",
+        username: 'adeiskandarzulkarnaen',
+        role: 'admin',
       };
 
       // Action
@@ -27,7 +27,7 @@ describe('HonoJwtTokenManager', () => {
   describe('verifyAccessToken', () => {
     it('should throw InvariantError when verification failed', async () => {
       // Arrange
-      const honoJwtTokenManager = new HonoJwtTokenManager({ sign, verify })
+      const honoJwtTokenManager = new HonoJwtTokenManager({ sign, verify });
       const token = 'invalid_token';
 
       // Action and Assert
@@ -37,10 +37,10 @@ describe('HonoJwtTokenManager', () => {
 
     it('should not throw InvariantError when access token verified', async () =>{
       // Arrange
-      const honoJwtTokenManager = new HonoJwtTokenManager({ sign, verify })
+      const honoJwtTokenManager = new HonoJwtTokenManager({ sign, verify });
       const payload = {
-        username: "adeiskandarzulkarnaen",
-        role: "admin",
+        username: 'adeiskandarzulkarnaen',
+        role: 'admin',
       };
 
       // Action
@@ -50,7 +50,7 @@ describe('HonoJwtTokenManager', () => {
       await expect(honoJwtTokenManager.verifyAccessToken(token))
         .resolves.not.toThrow(InvariantError);
     });
-  })
+  });
 });
 
 

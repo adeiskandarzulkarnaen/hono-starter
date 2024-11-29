@@ -6,7 +6,7 @@ import createServer from '@infrastructures/http/createServer';
 const app = createServer(container);
 const PORT = process.env.PORT;
 
-console.log(`Server up and running...`);
+console.log('Server up and running...');
 export default {
   port: PORT,
   fetch: app.fetch,

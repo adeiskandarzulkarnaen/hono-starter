@@ -1,5 +1,5 @@
-import { Hono } from "hono";
-import type AuthenticationHandler from "./handler";
+import { Hono } from 'hono';
+import type AuthenticationHandler from './handler';
 
 
 const routes = (handler: AuthenticationHandler): Hono => {

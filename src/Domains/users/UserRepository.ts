@@ -1,5 +1,5 @@
-import { RegisterUser } from "./entities/RegisterUser";
-import { RegisteredUser } from "./entities/RegisteredUser";
+import { RegisterUser } from './entities/RegisterUser';
+import { RegisteredUser } from './entities/RegisteredUser';
 
 
 abstract class UserRepository {

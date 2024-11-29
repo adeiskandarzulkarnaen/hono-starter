@@ -11,16 +11,16 @@ function bearerMiddleware() {
   return bearerAuth({
     token,
     noAuthenticationHeaderMessage: {
-      status: "fail",
-      message: "no bearer token"
+      status: 'fail',
+      message: 'no bearer token'
     },
     invalidAuthenticationHeaderMessage: {
-      status: "fail",
-      message: "invalid auth"
+      status: 'fail',
+      message: 'invalid auth'
     },
     invalidTokenMessage: {
-      status: "fail",
-      message: "invalid bearer token"
+      status: 'fail',
+      message: 'invalid bearer token'
     }
   });
 };

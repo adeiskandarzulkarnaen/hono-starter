@@ -1,6 +1,6 @@
-import type { password } from "bun";
-import AuthenticationError from "@commons/exceptions/AuthenticationError";
-import PasswordHash from "@applications/security/PasswordHash";
+import type { password } from 'bun';
+import AuthenticationError from '@commons/exceptions/AuthenticationError';
+import PasswordHash from '@applications/security/PasswordHash';
 
 
 class BunBCryptPasswordHash extends PasswordHash {
@@ -14,14 +14,14 @@ class BunBCryptPasswordHash extends PasswordHash {
 
   public async hash(plain: string): Promise<string> {
     const hashedPassword = await this.password.hash(plain, {
-      algorithm: "bcrypt",
+      algorithm: 'bcrypt',
       cost: this.saltRound,
     });
     return hashedPassword;
   }
 
   public async comparePassword(plain: string, hashed: string): Promise<void> {
-    const match = await this.password.verify(plain, hashed, "bcrypt");
+    const match = await this.password.verify(plain, hashed, 'bcrypt');
     if (!match) throw new AuthenticationError('credendensial tidak sesuai');
   }
 };

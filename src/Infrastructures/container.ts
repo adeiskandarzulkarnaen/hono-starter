@@ -3,7 +3,7 @@
 import { createContainer } from 'instances-container';
 
 // external agency
-import { password } from "bun";
+import { password } from 'bun';
 import { sign, verify } from 'hono/jwt';
 import prismaClient from '@infrastructures/database/prisma/prismaClient';
 
@@ -82,7 +82,7 @@ container.register([
       dependencies: [
         { name: 'userRepository', internal: UserRepository.name },
         { name: 'passwordHash', internal: PasswordHash.name },
-        { name: 'tokenManager', internal: AuthenticationTokenManager.name},
+        { name: 'tokenManager', internal: AuthenticationTokenManager.name },
       ]
     }
   }
