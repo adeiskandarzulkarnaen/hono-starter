@@ -37,4 +37,5 @@ hono-starter/               → Root Proyek.
 ├─ tests/                   → Utilitas kebutuhan untuk testing.
 ├─ .env                     → Environment variable.
 ├─ package.json             → Project Manifest.
+├─ tsconfig.json            → TypeScript Project Configuration.
 ```
