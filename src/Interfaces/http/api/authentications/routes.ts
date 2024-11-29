@@ -5,8 +5,8 @@ import type AuthenticationHandler from "./handler";
 const routes = (handler: AuthenticationHandler): Hono => {
   const app = new Hono();
 
-  // * ROUTING '/authentications'
-  app.post('/', handler.postAuthHandler);
+  /** ROUTING "/authentications" */
+  app.post('/', ...handler.postAuthHandlers);
 
 
   return app;

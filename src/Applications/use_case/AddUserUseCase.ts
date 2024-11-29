@@ -4,13 +4,13 @@ import type UserRepository from "@domains/users/UserRepository";
 import type PasswordHash from "@applications/security/PasswordHash";
 
 
-interface AddUserUseCaseDevedencies {
+export interface AddUserUseCaseDevedencies {
   userRepository: UserRepository,
   passwordHash: PasswordHash,
 }
 
 
-class AddUserUseCase {
+export class AddUserUseCase {
   private readonly userRepository: UserRepository;
   private readonly passwordHash : PasswordHash;
   constructor({ userRepository, passwordHash }: AddUserUseCaseDevedencies){
@@ -25,5 +25,6 @@ class AddUserUseCase {
     return this.userRepository.addUser(registerUser);
   }
 };
+
 
 export default AddUserUseCase;

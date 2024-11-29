@@ -7,10 +7,10 @@ import { mapJsonError } from "@commons/mapping/errorMaping";
 
 class AuthenticationHandler {
   constructor(private readonly container: Container) {
-    this.postAuthHandler = this.postAuthHandler.bind(this);
+    /* do something */
   }
 
-  public async postAuthHandler(c: Context) {
+  public postAuthHandlers = [ async (c: Context) => {
     const userLoginUseCase: UserLoginUseCase = this.container.getInstance(UserLoginUseCase.name)
     const payload: eUserLogin = await c.req.json().catch(mapJsonError);
 
@@ -23,7 +23,7 @@ class AuthenticationHandler {
         accessToken,
       }
     }, 201);
-  }
+  }];
 };
 
 export default AuthenticationHandler;

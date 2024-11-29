@@ -4,13 +4,13 @@ import type UserRepository from "@domains/users/UserRepository";
 import type PasswordHash from "@applications/security/PasswordHash";
 import type AuthenticationTokenManager from "@applications/security/AuthenticationTokenManager";
 
-interface UserLoginUseCaseDevedencies {
+export interface UserLoginUseCaseDevedencies {
   userRepository: UserRepository
   passwordHash: PasswordHash,
   tokenManager: AuthenticationTokenManager,
 }
 
-class UserLoginUseCase {
+export class UserLoginUseCase {
   private readonly userRepository;
   private readonly passwordHash;
   private readonly tokenManager;
@@ -32,4 +32,3 @@ class UserLoginUseCase {
 };
 
 export default UserLoginUseCase;
-
