@@ -16,7 +16,6 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
-    "@hono/swagger-ui": "^0.5.0",
     "@types/bun": "latest",
     "eslint": "^9.15.0",
     "globals": "^15.12.0",

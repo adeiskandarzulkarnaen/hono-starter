@@ -19,7 +19,7 @@ async function onErrorHandler(err: Error, c: Context) {
     }, err.status);
   }
 
-  console.error('Unhandled error:', err);
+  console.error('Unhandled error:', err.message);
   return c.json({
     status: 'error',
     message: 'terjadi kesalahan pada server kami',

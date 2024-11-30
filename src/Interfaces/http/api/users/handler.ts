@@ -27,11 +27,13 @@ class UserHandler {
   }];
 
   public getUserHandlers = [jwtAuth(), (c: Context) => {
+    const payload = c.get('jwtPayload');
+
     return c.json({
       status: 'success',
       message: 'berhasil get data user',
       data: {
-        any: 'test api'
+        payload,
       }
     });
   }];
