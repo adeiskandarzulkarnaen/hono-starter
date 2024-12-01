@@ -10,7 +10,7 @@ Authorization: Bearer xxx
 }
 
 
-##
+###
 // AddUserUseCase
 POST http://localhost:3000/users
 Content-Type: application/json
@@ -21,3 +21,10 @@ Authorization: Bearer xxx
   "password": "secretpassword",
   "fullname": "Ade Iskandar Zulkarnaen"
 }
+
+
+###
+// Test GET /users
+GET http://localhost:3000/users
+Content-Type: application/json
+Authorization: Bearer xxx
