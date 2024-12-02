@@ -1,7 +1,7 @@
 
 const config = {
   app: {
-    port: process.env.PORT,
+    port: process.env.APP_PORT,
   },
   database: {
     url: process.env.DATABASE_URL,

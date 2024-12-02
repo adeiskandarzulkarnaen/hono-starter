@@ -1,7 +1,7 @@
 import { Context } from 'hono';
 import { Container } from 'instances-container';
 import { eUserLogin } from '@domains/users/entities/UserLogin';
-import UserLoginUseCase from '@applications/use_case/UserLoginUseCase';
+import { UserLoginUseCase } from '@applications/use_case/UserLoginUseCase';
 import { mapJsonError } from '@commons/mapping/errorMaping';
 
 
