@@ -1,7 +1,10 @@
 import { jwt } from 'hono/jwt';
+import { MiddlewareHandler } from 'hono';
+import config from '@commons/config';
 
-const jwtAuth = () => {
-  const secret = process.env.ACCESS_TOKEN_SECRET!;
+
+function jwtAuth(): MiddlewareHandler {
+  const secret = config.jwt.secret!;
   return jwt({ secret });
 };
 

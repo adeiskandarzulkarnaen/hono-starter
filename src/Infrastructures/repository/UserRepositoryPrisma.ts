@@ -7,7 +7,7 @@ import { eRegisteredUser, RegisteredUser } from '@domains/users/entities/Registe
 
 
 class UserRepositoryPrisma extends UserRepository {
-  constructor(private prismaClient: PrismaClient) {
+  constructor(private readonly prismaClient: PrismaClient) {
     super();
   }
 

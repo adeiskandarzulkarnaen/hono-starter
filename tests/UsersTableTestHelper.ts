@@ -1,5 +1,5 @@
 import { password as bunPassword } from 'bun';
-import prismaClient from '../src/Infrastructures/database/prisma/prismaClient';
+import prismaClient from '../src/Infrastructures/database/prismaClient';
 
 
 const UsersTableTestHelper = {

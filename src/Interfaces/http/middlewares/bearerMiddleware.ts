@@ -1,7 +1,8 @@
 import { bearerAuth } from 'hono/bearer-auth';
+import { MiddlewareHandler } from 'hono';
 
 
-function bearerMiddleware() {
+function bearerMiddleware(): MiddlewareHandler {
   const token: string | undefined = process.env.BEARER_TOKEN;
 
   if (!token) {

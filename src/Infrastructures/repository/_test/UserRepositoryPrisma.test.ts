@@ -1,7 +1,7 @@
 import { describe, it, expect, afterEach, afterAll } from 'bun:test';
 import UsersTableTestHelper from '@tests/UsersTableTestHelper';
 import InvariantError from '@commons/exceptions/InvariantError';
-import prismaClient from '@infrastructures/database/prisma/prismaClient';
+import prismaClient from '@infrastructures/database/prismaClient';
 import UserRepositoryPrisma from '@infrastructures/repository/UserRepositoryPrisma';
 import { RegisterUser } from '@domains/users/entities/RegisterUser';
 import { RegisteredUser } from '@domains/users/entities/RegisteredUser';

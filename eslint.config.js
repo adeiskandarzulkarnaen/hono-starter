@@ -13,6 +13,7 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   {
+    ignorePatterns: ['dist/'],
     rules: {
       'linebreak-style': ['error', 'unix'],
       'no-trailing-spaces': 'error',
