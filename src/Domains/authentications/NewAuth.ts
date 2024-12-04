@@ -26,3 +26,5 @@ export class NewAuth {
     }
   }
 }
+
+export default NewAuth;

@@ -7,13 +7,12 @@ import tseslint from 'typescript-eslint';
 export default [
   {
     files: ['**/*.{ts}'],
-    ignores: ['**/node_modules/**', '**/dist/**', '**/*.test.ts'],
+    ignores: ['node_modules/**', 'dist/**', '**/*.test.ts'],
   },
   { languageOptions: { globals: globals.node } },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   {
-    ignorePatterns: ['dist/'],
     rules: {
       'linebreak-style': ['error', 'unix'],
       'no-trailing-spaces': 'error',
