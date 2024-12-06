@@ -1,10 +1,7 @@
 /* istanbul ignore file */
-
 import { createContainer } from 'instances-container';
 
 // external agency
-import { password } from 'bun';
-import { sign, verify } from 'hono/jwt';
 import prismaClient from '@infrastructures/database/prismaClient';
 
 
@@ -44,22 +41,10 @@ container.register([
   {
     key: PasswordHash.name,
     Class: BunBCryptPasswordHash,
-    parameter: {
-      injectType: 'parameter',
-      dependencies: [
-        { concrete: password }
-      ]
-    }
   },
   {
     key: AuthenticationTokenManager.name,
     Class: HonoJwtTokenManager,
-    parameter: {
-      injectType: 'parameter',
-      dependencies: [
-        { concrete: { sign, verify } }
-      ]
-    }
   }
 ]);
 

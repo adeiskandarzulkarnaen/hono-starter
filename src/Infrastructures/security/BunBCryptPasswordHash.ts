@@ -1,4 +1,4 @@
-import type { password } from 'bun';
+import { password } from 'bun';
 import AuthenticationError from '@commons/exceptions/AuthenticationError';
 import PasswordHash from '@applications/security/PasswordHash';
 
@@ -6,9 +6,9 @@ import PasswordHash from '@applications/security/PasswordHash';
 class BunBCryptPasswordHash extends PasswordHash {
   private readonly password;
   private readonly saltRound;
-  constructor(bunpassword: typeof password, saltRound: number = 10) {
+  constructor(saltRound: number = 10) {
     super();
-    this.password = bunpassword;
+    this.password = password;
     this.saltRound = saltRound;
   }
 

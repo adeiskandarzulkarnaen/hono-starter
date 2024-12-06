@@ -23,4 +23,7 @@ jobs:
         bun run lint
         bun run test
       env:
-        APP_PORT: 3000
+        APP_PORT: ${{ variables.APP_PORT }}
+        DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        ACCESS_TOKEN_AGE: ${{ variables.ACCESS_TOKEN_AGE }}
+        ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}

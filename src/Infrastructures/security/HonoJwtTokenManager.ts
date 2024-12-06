@@ -1,13 +1,15 @@
-import type { sign, verify } from 'hono/jwt';
-import type { JWTPayload } from 'hono/utils/jwt/types';
+import { sign, verify } from 'hono/jwt';
+import { JWTPayload } from 'hono/utils/jwt/types';
 import AuthenticationTokenManager from '@applications/security/AuthenticationTokenManager';
 import InvariantError from '@commons/exceptions/InvariantError';
 
 
 
 class HonoJwtTokenManager extends AuthenticationTokenManager {
-  constructor(public readonly honoJwt: { sign: typeof sign, verify: typeof verify }) {
+  public readonly honoJwt;
+  constructor() {
     super();
+    this.honoJwt = { sign, verify };
   }
 
   public async generateAccessToken(payload: object): Promise<string> {
