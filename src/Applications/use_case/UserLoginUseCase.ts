@@ -1,4 +1,4 @@
-import { eNewAuth, NewAuth } from '@domains/authentications/NewAuth';
+import { eNewAuth, NewAuth } from '@domains/authentications/entities/NewAuth';
 import { eUserLogin, UserLogin } from '@domains/users/entities/UserLogin';
 import type UserRepository from '@domains/users/UserRepository';
 import type PasswordHash from '@applications/security/PasswordHash';

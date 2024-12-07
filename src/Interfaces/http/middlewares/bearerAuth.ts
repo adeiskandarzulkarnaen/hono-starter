@@ -1,15 +1,15 @@
-import { bearerAuth } from 'hono/bearer-auth';
+import { bearerAuth as bearerAuthMiddleware } from 'hono/bearer-auth';
 import { MiddlewareHandler } from 'hono';
 
 
-function bearerMiddleware(): MiddlewareHandler {
+function bearerAuth(): MiddlewareHandler {
   const token: string | undefined = process.env.BEARER_TOKEN;
 
   if (!token) {
     throw new Error('Environment variable BEARER_TOKEN is not set');
   }
 
-  return bearerAuth({
+  return bearerAuthMiddleware({
     token,
     noAuthenticationHeaderMessage: {
       status: 'fail',
@@ -26,5 +26,4 @@ function bearerMiddleware(): MiddlewareHandler {
   });
 };
 
-export default bearerMiddleware;
-
+export default bearerAuth;
